@@ -1,0 +1,22 @@
+{
+  "name": "ohm-player",
+  "version": "0.1.0",
+  "homepage": "https://github.com/sergiovilar/ohm-player",
+  "authors": [
+    "Sérgio Vilar <sergiovilar.r@gmail.com>"
+  ],
+  "main": "index.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "angular": "~1.4.1",
+    "angular-route": "~1.4.1"
+  }
+}
