@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="ohm">
+  <head>
+    <title>Ohm Player</title>
+    <!-- Vendors -->
+    <script src="vendor/jquery/dist/jquery.min.js"></script>
+    <script src="vendor/angular/angular.min.js"></script>
+    <script src="vendor/angular-route/angular-route.min.js"></script>
+  </head>
+  <body>
+  
+    <section id="app">
+      
+      <aside ng-controller="NavController"></aside>
+      <div id="content" ng-view></div>
+
+    </section>
+
+  </body>
+  <script src="main.js"></script>
+  <script src="factory/album-factory.js"></script>
+  <script src="controllers/nav.js"></script>
+  <script src="controllers/album-controller.js"></script>
+  
+</html>
