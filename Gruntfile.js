@@ -10,12 +10,27 @@ module.exports = function(grunt) {
     src: __dirname + '/src',
 
     coffee: {
-      compile: {
+      options: {
+        bare: true
+      },
+      compile: {       
         files: [{
           expand: true,
           cwd: '<%=src%>',
           src: ['**/*.coffee'],
           dest: '<%=dist%>/',
+          ext: '.js'
+        }]
+      },
+      specs: {
+        options: {
+          bare: true
+        },
+        files: [{
+          expand: true,
+          cwd: './specs',
+          src: ['**/*.coffee'],
+          dest: '.tmp/specs',
           ext: '.js'
         }]
       }
@@ -28,6 +43,12 @@ module.exports = function(grunt) {
         src: ['**/*.html'],
         dest: '<%=dist%>/'        
       },
+      vendor: {
+        expand: true,
+        cwd: '<%=src%>/renderer/vendor',
+        src: ['**/*'],
+        dest: '<%=dist%>/renderer/vendor'
+      }
     },
 
     clean: {
@@ -38,8 +59,8 @@ module.exports = function(grunt) {
 
     watch: {
       coffee: {
-        files: ['<%=src%>/**/*.coffee'],
-        tasks: ['clean', 'coffee'],
+        files: ['<%=src%>/**/*.coffee', './specs/**/*.coffee'],
+        tasks: ['clean:dist', 'coffee'],
         options: {
           nospawn: true,
           livereload: true
