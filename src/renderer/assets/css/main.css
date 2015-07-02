@@ -1,0 +1,17 @@
+#auth {
+  padding-top: 40%; }
+
+.spaced {
+  padding: 20px; }
+
+#select-folder table.table-maverix tr {
+  cursor: pointer; }
+#select-folder table.table-maverix p.info-sub {
+  font-size: 13px;
+  padding: 5px 0; }
+
+.sidebar ul.nav li {
+  padding-left: 18px;
+  margin: 5px 0; }
+
+/*# sourceMappingURL=main.css.map */

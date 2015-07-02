@@ -17,6 +17,12 @@
   "dependencies": {
     "jquery": "~2.1.4",
     "angular": "~1.4.1",
-    "angular-route": "~1.4.1"
+    "angular-route": "~1.4.1",
+    "bootstrap": "~3.3.5",
+    "css-toggle-switch": "~3.1.1",
+    "entypo": "*",
+    "flot": "~0.8.3",
+    "rangeslider.js": "~1.2.1",
+    "font-awesome": "~4.3.0"
   }
 }

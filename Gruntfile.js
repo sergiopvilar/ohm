@@ -36,11 +36,29 @@ module.exports = function(grunt) {
       }
     },
 
+    sass: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%=src%>/renderer/assets/sass',
+          src: ['**/*.scss'],
+          dest: '<%=src%>/renderer/assets/css',
+          ext: '.css'
+        }]
+      }
+    },
+
     copy: {
       views: {
         expand: true,
         cwd: '<%=src%>',
         src: ['**/*.html'],
+        dest: '<%=dist%>/'        
+      },
+      css: {
+        expand: true,
+        cwd: '<%=src%>',
+        src: ['**/*.css'],
         dest: '<%=dist%>/'        
       },
       vendor: {
@@ -61,6 +79,14 @@ module.exports = function(grunt) {
       coffee: {
         files: ['<%=src%>/**/*.coffee', './specs/**/*.coffee'],
         tasks: ['clean:dist', 'coffee'],
+        options: {
+          nospawn: true,
+          livereload: true
+        }
+      },
+      sass: {
+        files: ['<%=src%>/**/*.scss'],
+        tasks: ['sass'],
         options: {
           nospawn: true,
           livereload: true

@@ -1,0 +1,48 @@
+
+<div id="auth" ng-show="step == 1">
+  <div class="container">     
+    <div class="span12">      
+        <h1 class="text-center">Welcome to Ohm Player!</h1>
+        <p class="text-center">Ohm uses Dropbox to stream the songs. Please click the button above to authorize Ohm to access your audio files on Dropbox.</p>
+        <p class="text-center">
+          <button class="btn btn-lg btn-default" ng-click="authorize()"><i class="fa fa-dropbox"></i> Authorize</button>
+        </p>
+    </div> 
+  </div>
+</div>
+
+<div id="select-folder" class="spaced" ng-show="step == 2">
+    
+  <div class="container">
+    <div class="col-sm-12">
+        <h1>Select a folder</h1>
+        <p><small>Please select your music folder so Ohm can read and create the library.</small></p>
+
+        <div class="table-cell" style="height: 250px">
+            <table class="table table-maverix table-maverix-large">
+                <tr ng-show="loading">
+                    <td><p class="info-sub">Loading...</p></td>
+                </tr>
+                <tr ng-hide="loading" ng-click="setPath(folder, path)" ng-repeat="folder in folders">
+                    <td><p class="info-sub"><i class="fa fa-folder"></i> {{folder}}</p></td>
+                </tr>
+            </table>
+        </div>
+
+        <p class="grey-bg" style="padding:5px"><small>
+          <strong>Note:</strong> Ohm will not download your entire library to read the songs metadata, so your music folder must have this structure:<br />
+          Music / The Beatles / Abbey Road / Songs...
+          <a style="position:relative;top:3px" class="pull-right" href="#">More info</a>
+        </small></p>
+      
+        <p>
+          Current folder: {{ path }}
+          <button class="btn btn-default pull-right" ng-click="savePath()" >Choose</button>
+        </p>
+
+        
+
+    </div>
+  </div>  
+
+</div>

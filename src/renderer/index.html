@@ -2,24 +2,42 @@
 <html ng-app="ohm">
   <head>
     <title>Ohm Player</title>
+
+    <link href="vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="vendor/css-toggle-switch/dist/toggle-switch.css" rel="stylesheet">
+    <link href="vendor/rangeslider.js/dist/rangeslider.css" rel="stylesheet">
+    <link href="vendor/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="assets/css/maverix.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+
     <!-- Vendors -->
     <script src="vendor/jquery/dist/jquery.min.js"></script>
     <script src="vendor/angular/angular.min.js"></script>
     <script src="vendor/angular-route/angular-route.min.js"></script>
+
   </head>
   <body>
+    
+    <div id="app-sidebar" ng-controller="NavController">
+      <div ng-show="showSidebar" ng-include src="'views/sidebar.html'"></div>
+    </div>
   
     <section id="app">
-      
-      <aside ng-controller="NavController"></aside>
       <div id="content" ng-view></div>
-
     </section>
 
   </body>
+
+  <script src="vendor/jquery/dist/jquery.min.js"></script>
+  <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="vendor/rangeslider.js/dist/rangeslider.min.js"></script>
+  <script src="vendor/flot/jquery.flot.js"></script>
+  <script src="vendor/flot/jquery.flot.pie.js"></script>
+
   <script src="main.js"></script>
   <script src="factory/album-factory.js"></script>
-  <script src="controllers/nav.js"></script>
+  <script src="controllers/nav-controller.js"></script>
+  <script src="controllers/setup-controller.js"></script>
   <script src="controllers/album-controller.js"></script>
   
 </html>

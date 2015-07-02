@@ -2,3 +2,5 @@ dist
 node_modules
 .tmp
 src/renderer/vendor
+.sass-cache
+src/renderer/maverix

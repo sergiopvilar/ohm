@@ -7,13 +7,16 @@ _ = require 'underscore'
 class Model  
 
   constructor: (@collection) ->
-    @db = low path.join(config.path, '/Ohm.db')
-    @db._.mixin(require 'underscore-db')
+    console.log @collection
+    db = low path.join(config.path, '/Ohm.db')
+    db._.mixin(require 'underscore-db')
 
-    instance = @db(@collection)
+    instance = db(@collection)
     _.extend instance, EventEmitter.prototype
-    methods = ['assign', 'remove', 'insert', 'push', 'pull']
-    
+    methods = ['assign', 'remove', 'insert', 'push', 'pull']    
+
+    instance.db = db
+
     instance.all = () ->
       return instance.toArray()
 
