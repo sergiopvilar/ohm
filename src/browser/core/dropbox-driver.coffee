@@ -11,7 +11,6 @@ class DropboxDriver
     that.folder = config.get 'folder'
 
   readPath = (path, callback) ->
-    console.log path
     that.client.readdir that.folder + '/'+ path, (error, entries) ->
       callback error, entries
 

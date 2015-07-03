@@ -31,12 +31,16 @@ class LibraryUpdater
   registerArtist = (callback) ->
     
     artistName = that.artists[artistCounter]
-    artist_id = Artist.insert({name: artistName}).id
+    artistExistent = Artist.where({name: artistName})
+    if artistExistent.length > 0
+      console.log 'Updating artist: '+ artistName
+      artist_id = artistExistent[0].id
+    else
+      console.log 'Registering artist: '+ artistName
+      artist_id = Artist.insert({name: artistName}).id
     albumCounter = 0
 
-    that.emit 'updating', artistName
-
-    console.log 'Registering artist: '+ artistName
+    that.emit 'updating', artistName    
 
     that.driver.getAlbums artistName, (err, albums) ->
       that.albums = albums
@@ -52,10 +56,15 @@ class LibraryUpdater
     
     artistName = that.artists[artistCounter]
     albumName = that.albums[albumCounter]
-    album_id = Album.insert({name: albumName, artist_id: artist_id }).id
-    songCounter = 0
 
-    console.log 'Registering album: '+ albumName
+    albumExistent = Album.where({name: albumName, artist_id: artist_id})
+    if albumExistent.length > 0
+      console.log 'Updating album: '+ albumName
+      album_id = albumExistent[0].id
+    else
+      console.log 'Registering album: '+ albumName
+      album_id = Album.insert({name: albumName, artist_id: artist_id}).id
+    songCounter = 0
 
     that.driver.getSongs artistName, albumName, (err, songs) ->
       that.songs = songs
@@ -71,11 +80,13 @@ class LibraryUpdater
     songName = that.songs[songCounter]
     albumName = that.albums[albumCounter]
     artistName = that.artists[artistCounter]
-    song_id = Song.insert({
-      name: songName, 
-      album_id: album_id
-      artist_id: artist_id
-    }).id
+
+    songExistent = Song.where({name: songName, artist_id: artist_id, album_id: album_id})
+    if songExistent.length == 0      
+      console.log 'Registering song: '+ songName
+      song_id = Song.insert({name: songName, artist_id: artist_id, album_id: album_id}).id
+    else
+      console.log 'Skiping song: '+ songName
     
     songCounter++
     if songCounter < that.songs.length
