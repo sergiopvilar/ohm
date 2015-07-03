@@ -4,3 +4,5 @@ node_modules
 src/renderer/vendor
 .sass-cache
 src/renderer/maverix
+*.sublime-workspace
+ohm.sublime-workspace
