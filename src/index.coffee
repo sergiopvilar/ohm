@@ -1,6 +1,9 @@
 app = require 'app'
 BrowserWindow = require 'browser-window'
 
+dropboxDriver = require __dirname + '/browser/core/dropbox-driver.js'
+libraryUpdater = require __dirname + '/browser/core/library-updater.js'
+
 require('crash-reporter').start()
 mainWindow = null;
 
@@ -15,9 +18,12 @@ app.on 'window-all-closed', ->
 app.on 'ready', ->
   
   mainWindow = new BrowserWindow {width: width, height: 600}
-
   mainWindow.loadUrl 'file://' + __dirname + '/renderer/index.html'+view
   #mainWindow.openDevTools()
+  
+  #if view is ''
+  updater = new libraryUpdater(new dropboxDriver())
+  updater.update()
 
   mainWindow.on 'closed', ->
     mainWindow = null;
