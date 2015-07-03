@@ -31,7 +31,7 @@ class LibraryUpdater
   registerArtist = (callback) ->
     
     artistName = that.artists[artistCounter]
-    artistExistent = Artist.where({name: artistName})
+    artistExistent = Artist.where({name: artistName})    
     if artistExistent.length > 0
       console.log 'Updating artist: '+ artistName
       artist_id = artistExistent[0].id

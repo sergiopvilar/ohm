@@ -1,15 +1,14 @@
-path = require 'path'
-low = require 'lowdb'
-config = require '../config/main'
+
 EventEmitter = require("events").EventEmitter
 _ = require 'underscore'
+database = require '../core/database.js'
 
 class Model  
 
   constructor: (@collection) ->
-    console.log @collection
-    db = low path.join(config.path, '/Ohm.db')
-    db._.mixin(require 'underscore-db')
+    
+     
+    db = database.getDB()
 
     instance = db(@collection)
     _.extend instance, EventEmitter.prototype
