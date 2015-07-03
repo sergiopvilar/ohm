@@ -6,8 +6,6 @@ Artist = require '../models/artist'
 Album = require '../models/album'
 Song = require '../models/song'
 
-console.log Artist
-
 class LibraryUpdater
   _.extend @prototype, EventEmitter.prototype
 
@@ -78,8 +76,6 @@ class LibraryUpdater
       album_id: album_id
       artist_id: artist_id
     }).id
-
-    console.log 'Registering song: '+ songName
     
     songCounter++
     if songCounter < that.songs.length

@@ -2,7 +2,7 @@ app = require 'app'
 BrowserWindow = require 'browser-window'
 
 dropboxDriver = require __dirname + '/browser/core/dropbox-driver.js'
-libraryUpdater = require __dirname + '/browser/core/library-updater.js'
+library = require __dirname + '/browser/core/library.js'
 
 require('crash-reporter').start()
 mainWindow = null;
@@ -22,8 +22,7 @@ app.on 'ready', ->
   #mainWindow.openDevTools()
   
   #if view is ''
-  updater = new libraryUpdater(new dropboxDriver())
-  updater.update()
+  library.update()
 
   mainWindow.on 'closed', ->
     mainWindow = null;

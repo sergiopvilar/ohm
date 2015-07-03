@@ -21,10 +21,11 @@
     <div id="app-sidebar" ng-controller="NavController">
       <div ng-show="showSidebar" ng-include src="'views/sidebar.html'"></div>
     </div>
-  
-    <section id="app">
-      <div id="content" ng-view></div>
-    </section>
+
+    <div class="content">
+      <div class="container-fluid container-maverix" ng-view>
+      </div>
+    </div>
 
   </body>
 
