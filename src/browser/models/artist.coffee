@@ -5,4 +5,4 @@ class Artist extends Model
   constructor: () ->    
     return super('artists')
 
-module.exports = Artist
+module.exports = new Artist

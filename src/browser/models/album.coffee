@@ -5,4 +5,4 @@ class Album extends Model
   constructor: () ->    
     return super('albums')
 
-module.exports = Album
+module.exports = new Album

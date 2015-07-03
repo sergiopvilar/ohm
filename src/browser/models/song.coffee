@@ -5,4 +5,4 @@ class Song extends Model
   constructor: () ->    
     return super('songs')
 
-module.exports = Song
+module.exports = new Song
