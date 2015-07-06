@@ -14,11 +14,11 @@ class Library
     that = this
 
   updatePercentage = (p = false) ->
-    percentage = (100 / drivers.length) * driversCounter    
+    percentage = (100 / drivers.length) * driversCounter
     if p
       percentage += (p / drivers.length)
     that.emit 'percentage', percentage
-
+      
   doUpdate = ->
     driverName = drivers[driversCounter]
     driver = require './'+driverName+'-driver.js'

@@ -1,3 +1,4 @@
+
 path = require 'path'
 low = require 'lowdb'
 config = require '../config/main'
@@ -10,7 +11,7 @@ class Database
     db = low path.join(config.path, '/Ohm.db')
     db._.mixin(require 'underscore-db')
 
-  getDB: ->        
+  getDB: ->
 
     return db
 

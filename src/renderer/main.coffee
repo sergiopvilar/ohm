@@ -6,6 +6,7 @@ basePath = path.join __dirname, '..', 'browser'
 ModelBuilder = remote.require path.join basePath, 'models', 'builder.js'
 config = remote.require path.join basePath, 'models', 'config.js'
 dialog = remote.require 'dialog'
+library = require path.join basePath + 'core' + 'library.js'
 
 app.config ($routeProvider, $locationProvider) ->
 
@@ -18,7 +19,7 @@ app.config ($routeProvider, $locationProvider) ->
 
   .when '/setup', {
     templateUrl: 'views/setup.html',
-    controller: 'SetupController' 
+    controller: 'SetupController'
   }
 
   .otherwise {redirectTo: '/albums'}
