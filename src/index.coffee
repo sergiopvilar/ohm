@@ -1,8 +1,7 @@
 app = require 'app'
 BrowserWindow = require 'browser-window'
 
-dropboxDriver = require __dirname + '/browser/core/dropbox-driver.js'
-library = require __dirname + '/browser/core/library.js'
+library = require __dirname + '/browser/core/library/library.js'
 
 require('crash-reporter').start()
 mainWindow = null

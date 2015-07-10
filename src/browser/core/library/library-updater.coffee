@@ -2,9 +2,9 @@ EventEmitter = require("events").EventEmitter
 _ = require 'underscore'
 
 # Models
-Artist = require '../models/artist'
-Album = require '../models/album'
-Song = require '../models/song'
+Artist = require '../../models/artist'
+Album = require '../../models/album'
+Song = require '../../models/song'
 
 class LibraryUpdater
   _.extend @prototype, EventEmitter.prototype
@@ -18,9 +18,9 @@ class LibraryUpdater
   albumCounter = 0
   songCounter = 0
 
-  update: () ->    
-    that.driver.getArtists (err, artists) ->      
-      that.artists = artists      
+  update: () ->
+    that.driver.getArtists (err, artists) ->
+      that.artists = artists
       registerArtist () ->
         that.emit('complete')
 
@@ -29,9 +29,9 @@ class LibraryUpdater
     that.emit 'percentage', percentage
 
   registerArtist = (callback) ->
-    
+
     artistName = that.artists[artistCounter]
-    artistExistent = Artist.where({name: artistName})    
+    artistExistent = Artist.where({name: artistName})
     if artistExistent.length > 0
       console.log 'Updating artist: '+ artistName
       artist_id = artistExistent[0].id
@@ -40,7 +40,7 @@ class LibraryUpdater
       artist_id = Artist.insert({name: artistName}).id
     albumCounter = 0
 
-    that.emit 'updating', artistName    
+    that.emit 'updating', artistName
 
     that.driver.getAlbums artistName, (err, albums) ->
       that.albums = albums
@@ -53,7 +53,7 @@ class LibraryUpdater
 
 
   registerAlbum = (artist_id, callback) ->
-    
+
     artistName = that.artists[artistCounter]
     albumName = that.albums[albumCounter]
 
@@ -82,12 +82,12 @@ class LibraryUpdater
     artistName = that.artists[artistCounter]
 
     songExistent = Song.where({name: songName, artist_id: artist_id, album_id: album_id})
-    if songExistent.length == 0      
+    if songExistent.length == 0
       console.log 'Registering song: '+ songName
       song_id = Song.insert({name: songName, artist_id: artist_id, album_id: album_id}).id
     else
       console.log 'Skiping song: '+ songName
-    
+
     songCounter++
     if songCounter < that.songs.length
       registerSong artist_id, album_id, callback

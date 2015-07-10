@@ -1,5 +1,5 @@
-dropbox = require('./auth')
-config = require '../models/config'
+dropbox = require('../auth')
+config = require '../../models/config'
 
 class DropboxDriver
 
