@@ -2,5 +2,6 @@ language: node_js
 node_js:
   - "0.10"
 install:
-  - npm install -g mocha
+  - npm install -g mocha grunt-cli bower
   - npm install
+  - bower install
