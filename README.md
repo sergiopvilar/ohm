@@ -1,5 +1,7 @@
 # Ohm Player
 
+[![Build Status](https://travis-ci.org/OhmPlayer/ohm.svg?branch=master)](https://travis-ci.org/OhmPlayer/ohm)
+
 A music player that streams your music from Dropbox.
 
 # Developing
