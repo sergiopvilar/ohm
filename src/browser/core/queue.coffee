@@ -20,17 +20,15 @@ class Queue
 
   checkForRun: ->
     unless @running
-      @run
+      do @run
 
   run: ->
-    unless @running
-      @pointer = 0
-      @running = true
-      do runTask
+    @pointer = 0
+    @running = true
+    do @runTask
 
 
   runTask: =>
-
     unless @pointer < @tasks.length
       do @reset
     else
