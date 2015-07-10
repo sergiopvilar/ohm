@@ -11,5 +11,4 @@ describe 'Model', ->
   it 'Should create a new Album model', ->
 
     Album = require '../../dist/browser/models/album.js';
-    Instance = new Album()
-    expect(Instance.toJSON()).to.have.length(0)
+    expect(Album.toJSON()).to.have.length(0)
