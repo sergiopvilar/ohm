@@ -15,7 +15,6 @@ class Queue
       params: params,
       callback: callback
     }
-
     do @checkForRun
 
   checkForRun: ->
@@ -33,9 +32,9 @@ class Queue
       do @reset
     else
       item = @tasks[@pointer]
-      item.fn item.params, (ret) ->
+      item.fn item.params, (ret) =>
         @pointer++
-        @runTask
+        do @runTask
         if item.callback
           item.callback ret
 
