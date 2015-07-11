@@ -17,15 +17,12 @@
 
   </head>
   <body>
-    
+
     <div id="app-sidebar" ng-controller="NavController">
       <div ng-show="showSidebar" ng-include src="'views/sidebar.html'"></div>
     </div>
 
-    <div class="content">
-      <div class="container-fluid container-maverix" ng-view>
-      </div>
-    </div>
+    <div class="container-maverix" ng-view>
 
   </body>
 
@@ -40,5 +37,5 @@
   <script src="controllers/nav-controller.js"></script>
   <script src="controllers/setup-controller.js"></script>
   <script src="controllers/album-controller.js"></script>
-  
+
 </html>

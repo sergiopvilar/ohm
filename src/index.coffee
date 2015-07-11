@@ -18,7 +18,7 @@ app.on 'ready', ->
 
   mainWindow = new BrowserWindow {width: width, height: 600}
   mainWindow.loadUrl 'file://' + __dirname + '/renderer/index.html'+view
-  #mainWindow.openDevTools()
+  # mainWindow.openDevTools()
 
 if view is ''
   library.update()
