@@ -24,6 +24,6 @@ class ItunesCoverDriver
         that.emit 'success', obj.results[0].artworkUrl100
 
       catch error
-        that.emit 'error', error.message
+        that.emit 'error', error
 
 module.exports = ItunesCoverDriver
