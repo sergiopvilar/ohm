@@ -24,6 +24,6 @@ class LastFmCoverDriver
         @emit 'success', response.album.image[2]['#text']
 
       catch error
-        @emit 'error', error.message
+        @emit 'error', error
 
 module.exports = LastFmCoverDriver
