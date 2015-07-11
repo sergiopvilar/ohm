@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "export NODE_ENV=test; grunt coffee; mocha ./.tmp/specs",
+    "test": "export NODE_ENV=test; grunt clean; grunt coffee; mocha ./.tmp/specs",
     "start": "export NODE_ENV=development; grunt build; ./node_modules/.bin/electron ./dist"
   },
   "repository": {

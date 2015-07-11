@@ -1,8 +1,8 @@
 module.exports = function(grunt) {
-  
+
   var path = require('path');
 
-  require('load-grunt-tasks')(grunt);  
+  require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
 
@@ -13,7 +13,7 @@ module.exports = function(grunt) {
       options: {
         bare: true
       },
-      compile: {       
+      compile: {
         files: [{
           expand: true,
           cwd: '<%=src%>',
@@ -53,13 +53,13 @@ module.exports = function(grunt) {
         expand: true,
         cwd: '<%=src%>',
         src: ['**/*.html'],
-        dest: '<%=dist%>/'        
+        dest: '<%=dist%>/'
       },
       css: {
         expand: true,
         cwd: '<%=src%>',
         src: ['**/*.css'],
-        dest: '<%=dist%>/'        
+        dest: '<%=dist%>/'
       },
       vendor: {
         expand: true,
@@ -72,7 +72,10 @@ module.exports = function(grunt) {
     clean: {
       dist: {
         src: ["<%=dist%>"]
-      }      
+      },
+      specs: {
+        src: [".tmp"]
+      }
     },
 
     watch: {
@@ -99,7 +102,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'clean',
     'copy',
-    'coffee:compile'    
+    'coffee:compile'
   ]);
 
 };
