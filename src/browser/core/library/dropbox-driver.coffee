@@ -10,6 +10,9 @@ class DropboxDriver
     that.client = dropbox.client
     that.folder = config.get 'folder'
 
+  getName: () ->
+    return 'dropbox'
+
   getPath: () ->
     return that.folder
 

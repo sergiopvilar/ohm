@@ -88,7 +88,8 @@ class LibraryUpdater
         name: songName,
         artist_id: artist_id,
         album_id: album_id,
-        path: driver.getPath() + '/' + artistName + '/' + albumName + '/' + songName
+        driver: that.driver.getName()
+        path: that.driver.getPath() + '/' + artistName + '/' + albumName + '/' + songName
       }).id
     else
       console.log 'Skiping song: '+ songName
