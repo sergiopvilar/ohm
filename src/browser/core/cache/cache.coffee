@@ -11,7 +11,7 @@ class Cache
       fs.mkdirSync @cacheDir
 
   getOrDownload: (songId, callback) ->
-    _song = Song.find({id: songId}).value
+    _song = Song.find({id: songId}).value()
     if not fs.existsSync @cacheDir + '/' + songId
 
       Driver = require './' + _song.driver + '-downloader.js'
@@ -22,7 +22,7 @@ class Cache
         callback false
 
       dv.on 'success', ->
-        callback @cacheDir + '/' + songId        
+        callback @cacheDir + '/' + songId
 
     else
       callback @cacheDir + '/' + songId
