@@ -1,7 +1,8 @@
 
 class Cover
 
-  constructor: (@artist, @album, @callback) ->
+  constructor: (data, @callback) ->
+    {@artist, @album} = data
     that = this
     drivers = ['itunes']
     driverCounter = 0
