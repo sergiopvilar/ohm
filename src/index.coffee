@@ -20,8 +20,8 @@ app.on 'ready', ->
   mainWindow.loadUrl 'file://' + __dirname + '/renderer/index.html'+view
   # mainWindow.openDevTools()
 
-if view is ''
-  library.update()
+  if view is ''
+    library.update()
 
   mainWindow.on 'closed', ->
     mainWindow = null
