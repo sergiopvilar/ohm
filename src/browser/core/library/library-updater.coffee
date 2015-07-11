@@ -84,7 +84,12 @@ class LibraryUpdater
     songExistent = Song.where({name: songName, artist_id: artist_id, album_id: album_id})
     if songExistent.length == 0
       console.log 'Registering song: '+ songName
-      song_id = Song.insert({name: songName, artist_id: artist_id, album_id: album_id}).id
+      song_id = Song.insert({
+        name: songName,
+        artist_id: artist_id,
+        album_id: album_id,
+        path: driver.getPath() + '/' + artistName + '/' + albumName + '/' + songName
+      }).id
     else
       console.log 'Skiping song: '+ songName
 

@@ -10,6 +10,9 @@ class DropboxDriver
     that.client = dropbox.client
     that.folder = config.get 'folder'
 
+  getPath: () ->
+    return that.folder
+
   readPath = (path, callback) ->
     that.client.readdir that.folder + '/'+ path, (error, entries) ->
       callback error, entries
