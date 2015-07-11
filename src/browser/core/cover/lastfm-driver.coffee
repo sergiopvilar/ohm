@@ -14,14 +14,16 @@ class LastFmCoverDriver
     request base_api + '&artist=' + artist + '&album=' + album, (error, response, body) =>
       try
 
-        unless response.statusCode == 200 or typeof response.error == 'undefined'
+        obj = JSON.parse body
+
+        unless response.statusCode == 200 or typeof obj.error == 'undefined'
           throw new Error 'Cover not found'
 
         # Check if large image (174x174) exists
-        if response.album.image[2]['#text'] == ''
+        if obj.album.image[2]['#text'] == ''
           throw new Error 'Cover not found'
 
-        @emit 'success', response.album.image[2]['#text']
+        @emit 'success', obj.album.image[2]['#text']
 
       catch error
         @emit 'error', error
