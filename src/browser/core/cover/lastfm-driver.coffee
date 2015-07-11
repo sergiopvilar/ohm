@@ -10,9 +10,8 @@ class LastFmCoverDriver
   base_api = 'http://ws.audioscrobbler.com/2.0/?format=json&method=album.getInfo&api_key=' + api_key
 
   constructor: (artist, album) ->
-    that = this
 
-    request base_api + '&artist=' + artist + '&album=' + album, (error, response, body) ->
+    request base_api + '&artist=' + artist + '&album=' + album, (error, response, body) =>
       try
 
         unless response.statusCode == 200 or typeof response.error == 'undefined'
@@ -22,9 +21,9 @@ class LastFmCoverDriver
         if response.album.image[2]['#text'] == ''
           throw new Error 'Cover not found'
 
-        that.emit 'success', response.album.image[2]['#text']
+        @emit 'success', response.album.image[2]['#text']
 
       catch error
-        that.emit 'error', error.message
+        @emit 'error', error.message
 
 module.exports = LastFmCoverDriver
