@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "export NODE_ENV=test; grunt build; mocha ./.tmp/specs",
+    "test": "export NODE_ENV=test; grunt build; node ./test/fixtures/pretest.js; mocha ./.tmp/specs --timeout=10000",
     "start": "export NODE_ENV=development; grunt build; ./node_modules/.bin/electron ./dist"
   },
   "repository": {

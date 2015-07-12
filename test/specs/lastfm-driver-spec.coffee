@@ -3,9 +3,10 @@ LastFmCoverDriver = require '../../dist/browser/core/cover/lastfm-driver.js'
 
 describe 'LastFm Driver for Covers', ->
 
-  it 'should get a cover', (done) ->
 
+  it 'should get a cover', (done) ->
     @timeout = 10000
+
     driver = new LastFmCoverDriver 'Coldplay', 'Parachutes'
     driver.on 'success', (cover) ->
       expect(cover).to.match(/\b(jpg|png)/g)
