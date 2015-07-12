@@ -19,10 +19,18 @@ describe 'LastFm Driver for Covers', ->
       expect(error.message).to.be('Cover not found')
       do done
 
-  it 'should not get a cover', (done) ->
+  it 'should not get a cover of unknown artist', (done) ->
 
     @timeout = 10000
-    driver = new LastFmCoverDriver 'Igreja Batista Sal & Luz', 'Metanóia 2015.1'
+    driver = new LastFmCoverDriver 'IBSL', 'Metanoia'
     driver.on 'error', (error) ->
       expect(error.message).to.be('Artist not found')
+      do done
+
+  it 'should not get a cover of unknown album', (done) ->
+
+    @timeout = 10000
+    driver = new LastFmCoverDriver 'Coldplay', 'R.A.B.T'
+    driver.on 'error', (error) ->
+      expect(error.message).to.be('Album not found')
       do done
