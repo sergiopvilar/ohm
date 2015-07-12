@@ -8,7 +8,7 @@ describe 'LastFm Driver for Covers', ->
     @timeout = 10000
     driver = new LastFmCoverDriver 'Coldplay', 'Parachutes'
     driver.on 'success', (cover) ->
-      expect(cover).to.not.be.empty()
+      expect(cover).to.match(/\b(jpg|png)/g)
       do done
 
   it 'should not get a cover that not exists', (done) ->
