@@ -1,3 +1,4 @@
 module.exports = {
-  path: './.tmp'
+  path: './.tmp',
+  db_path: './test/fixtures'
 }

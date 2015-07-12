@@ -8,7 +8,7 @@ class Database
   db = null
 
   constructor: ->
-    db = low path.join(config.path, '/Ohm.db')
+    db = low path.join(config.db_path, '/Ohm.db')
     db._.mixin(require 'underscore-db')
 
   getDB: ->
