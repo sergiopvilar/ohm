@@ -16,8 +16,11 @@ class LastFmCoverDriver
 
         obj = JSON.parse body
 
-        unless response.statusCode == 200 or typeof obj.error == 'undefined'
+        unless response.statusCode == 200
           throw new Error 'Cover not found'
+
+        if obj.error
+          throw new Error obj.message
 
         # Check if large image (174x174) exists
         if obj.album.image[2]['#text'] == ''
