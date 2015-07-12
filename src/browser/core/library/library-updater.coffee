@@ -89,6 +89,7 @@ class LibraryUpdater
         artist_id: artist_id,
         album_id: album_id,
         driver: that.driver.getName()
+        last_played: 0,
         path: that.driver.getPath() + '/' + artistName + '/' + albumName + '/' + songName
       }).id
     else
