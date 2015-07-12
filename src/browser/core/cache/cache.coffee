@@ -47,4 +47,4 @@ class Cache
           queue.add @removeSong, song
 
 
-module.exports = new Cache
+module.exports = (path) -> new Cache path
