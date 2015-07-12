@@ -15,5 +15,7 @@ class DropboxDownloader
         that.emit 'error', error
       else
         buffer = utils.toBuffer data
-        fs.write location, data, ->
+        fs.writeFile location, buffer, ->
           that.emit 'success'
+
+module.exports = DropboxDownloader
