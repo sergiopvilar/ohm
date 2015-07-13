@@ -22,7 +22,7 @@ class Cache
     if not fs.existsSync cacheDir + '/' + songId
       @save songId, callback
     else
-      callback @cacheDir + '/' + songId
+      callback cacheDir + '/' + songId
 
   save: (songId, callback) ->
     _song = Song.chain().find({id: songId}).value()
@@ -35,9 +35,9 @@ class Cache
       callback false
 
     dv.on 'success', ->
-      callback @cacheDir + '/' + songId
+      callback cacheDir + '/' + songId
 
-  removeSong: (song, callback) ->    
+  removeSong: (song, callback) ->
     fs.existsSync cacheDir + '/' + song.id
     if fs.existsSync cacheDir + '/' + song.id
       fs.unlinkSync cacheDir + '/' + song.id

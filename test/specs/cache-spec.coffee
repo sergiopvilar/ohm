@@ -20,8 +20,10 @@ describe 'Cache', ->
 
   it 'Should download and save a song', (done) ->
     @timeout 20000
-    cache.getOrDownload _song.id, () ->
+    cache.getOrDownload _song.id, (spath) ->
       songPath = path.join tmpPath, _song.id
+      expect(spath).not.to.be(false)
+      expect(spath).to.be(songPath)
       expect(fs.existsSync(songPath)).to.be(true)
       do done
 
